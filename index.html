@@ -1,0 +1,52 @@
+<html>
+  <head>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/indigo-player@1/lib/indigo-player.js"></script>
+  
+</head>
+  <body>
+    <div id="playerContainer"></div><hr>
+<!--     <div id="player"></div> -->
+
+    <script>
+     function getUrlParameter(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+  var results = regex.exec(location.search);
+  return results === null
+    ? ""
+    : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+var embed = getUrlParameter("video");
+const config = {
+  sources: [
+    {
+      type: "hls",
+      src: embed
+    },
+    {
+      ui: {
+        image: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg"
+      }
+    }
+  ]
+};
+
+const element = document.getElementById("playerContainer");
+const player = IndigoPlayer.init(element, config);
+
+var playerElement = document.getElementById("player");
+
+var clap = new Clappr.Player({
+  source: embed,
+  poster: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg",
+  mute: true,
+  height: 360,
+  width: 640
+});
+
+clap.attachTo(playerElement);
+
+    </script>
+  </body>
+</html>
