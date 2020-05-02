@@ -1,5 +1,7 @@
 <html>
   <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/indigo-player@1/lib/indigo-player.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -51,8 +53,8 @@ var clap = new Clappr.Player({
   source: embed,
   poster: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg",
   mute: true,
-  height: 360,
-  width: 640
+  height: 100%,
+  width: 100%
 });
 
 clap.attachTo(playerElement);
