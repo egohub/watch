@@ -30,31 +30,31 @@
     : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 var embed = getUrlParameter("video");
-const config = {
-  sources: [
-    {
-      type: "hls",
-      src: embed
-    },
-    {
-      ui: {
-        image: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg"
-      }
-    }
-  ]
-};
+// const config = {
+//   sources: [
+//     {
+//       type: "hls",
+//       src: embed
+//     },
+//     {
+//       ui: {
+//         image: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg"
+//       }
+//     }
+//   ]
+// };
 
-const element = document.getElementById("playerContainer");
-const player = IndigoPlayer.init(element, config);
+// const element = document.getElementById("playerContainer");
+// const player = IndigoPlayer.init(element, config);
 
 var playerElement = document.getElementById("player");
 
 var clap = new Clappr.Player({
   source: embed,
-  poster: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg",
+  poster: "https://cdn.wallpaperhi.com/1920x1080/20121108/509be1073f6c2.jpg",
   mute: true,
   height: 360,
-  width: 650
+  width: '99%'
 });
 
 clap.attachTo(playerElement);
