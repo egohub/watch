@@ -1,0 +1,64 @@
+<html>
+  <head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/indigo-player@1/lib/indigo-player.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71010419-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-71010419-2');
+</script>
+
+
+</head>
+  <body>
+    <div id="player"></div><hr>
+    <div id="playerContainer"></div>
+
+    <script>
+     function getUrlParameter(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+  var results = regex.exec(location.search);
+  return results === null
+    ? ""
+    : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+var embed = getUrlParameter("video");
+// const config = {
+//   sources: [
+//     {
+//       type: "hls",
+//       src: embed
+//     },
+//     {
+//       ui: {
+//         image: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg"
+//       }
+//     }
+//   ]
+// };
+
+// const element = document.getElementById("playerContainer");
+// const player = IndigoPlayer.init(element, config);
+
+var playerElement = document.getElementById("player");
+
+var clap = new Clappr.Player({
+  source: embed,
+  poster: "https://cdn.wallpaperhi.com/1920x1080/20121108/509be1073f6c2.jpg",
+  mute: true,
+  height: '99%',
+  width: '99%'
+});
+
+clap.attachTo(playerElement);
+
+    </script>
+  </body>
+</html>
