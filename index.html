@@ -1,64 +1,85 @@
-<html>
-  <head>
-  <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/clappr/latest/clappr.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/indigo-player@1/lib/indigo-player.js"></script>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71010419-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!DOCTYPE html>
+<html lang="en">
 
-  gtag('config', 'UA-71010419-2');
-</script>
-
-
-</head>
-  <body>
-    <div id="player"></div><hr>
-    <div id="playerContainer"></div>
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="lib/video-js.css" rel="stylesheet">
+    <link href="https://unpkg.com/@videojs/themes@1/dist/city/index.css" rel="stylesheet">
+    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+    <link href="lib/sea.css" rel="stylesheet">
+    <link href="lib/fantasy.css" rel="stylesheet">
+    <link href="lib/player-logo.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71010419-2"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167278162-1"></script>
     <script>
-     function getUrlParameter(name) {
-  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
-  var results = regex.exec(location.search);
-  return results === null
-    ? ""
-    : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
-var embed = getUrlParameter("video");
-// const config = {
-//   sources: [
-//     {
-//       type: "hls",
-//       src: embed
-//     },
-//     {
-//       ui: {
-//         image: "https://soccerhubaustin.com/wp-content/uploads/2017/05/video-poster-image-leages.jpg"
-//       }
-//     }
-//   ]
-// };
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-// const element = document.getElementById("playerContainer");
-// const player = IndigoPlayer.init(element, config);
-
-var playerElement = document.getElementById("player");
-
-var clap = new Clappr.Player({
-  source: embed,
-  poster: "https://cdn.wallpaperhi.com/1920x1080/20121108/509be1073f6c2.jpg",
-  mute: true,
-  height: '99%',
-  width: '99%'
-});
-
-clap.attachTo(playerElement);
-
+        gtag('config', 'UA-167278162-1');
     </script>
-  </body>
+
+    <style>
+        body {
+            background: -webkit-linear-gradient(left top, #3F51B5, #673AB7);
+            background: -o-linear-gradient(bottom right, #3F51B5, #673AB7);
+            background: -moz-linear-gradient(bottom right, #3F51B5, #673AB7);
+            background: linear-gradient(to bottom right, #3F51B5, #673AB7);
+        }
+
+        .container {
+            padding-top: 100px;
+        }
+
+        .video-js .vjs-control-bar {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <video id='hls-example' class="video-js vjs-theme-fantasy vjs-big-play-centered" width="400" height="300"></video>
+           
+    </div>
+
+    <!-- JS code -->
+    <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+    <script src="lib/videojs-contrib-hls.js"></script>
+    <script src="lib/video.js"></script>
+    <script src="lib/video-logo.js"></script>
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+            var results = regex.exec(location.search);
+            return results === null
+                ? ""
+                : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        var embed = getUrlParameter("video");
+        var player = videojs('hls-example', {
+            poster: 'https://picsum.photos/800/450',
+            controls: true,
+            loop: true,
+            fluid: true,
+            playbackRates: [1, 1.5, 2, 3]
+        });
+        player.src({ type: 'application/x-mpegURL', src: embed });
+        player.logo({
+            image: 'xray.png',
+            url: 'https://github.com/egohub',
+            width: 20,
+            fadeDelay: null
+        });
+// player.play();
+    </script>
+</body>
+
 </html>
